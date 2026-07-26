@@ -1,26 +1,367 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Mobile-specific improvements */
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Improve touch targets on mobile */
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better text wrapping */
+  p, h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+@layer components {
+  .prose {
+    @apply text-foreground;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .prose code {
+    @apply bg-secondary text-foreground px-1 py-0.5 rounded text-xs;
+    word-break: break-all;
+  }
+  
+  .prose pre {
+    @apply bg-secondary border rounded-md p-3 overflow-x-auto;
+    max-width: 100%;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent p-0;
+    word-break: normal;
+    white-space: pre;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-primary pl-3 italic;
+  }
+  
+  .prose table {
+    @apply w-full border-collapse;
+    max-width: 100%;
+  }
+  
+  .prose th,
+  .prose td {
+    @apply border border-border px-2 py-1 text-left;
+    word-wrap: break-word;
+  }
+  
+  .prose th {
+    @apply font-medium;
+  }
+  
+  .prose p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .prose li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Mobile-specific prose adjustments */
+  @media (max-width: 640px) {
+    .prose {
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    
+    .prose h1 {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+    
+    .prose h2 {
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    
+    .prose h3 {
+      font-size: 1.125rem;
+      line-height: 1.3;
+    }
+    
+    .prose pre {
+      padding: 0.75rem;
+      font-size: 0.75rem;
+    }
+    
+    .prose table {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+@layer utilities {
+  /* Mobile-first responsive utilities */
+  .mobile-container {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-text {
+    @apply text-sm sm:text-base;
+  }
+  
+  .mobile-heading {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+  
+  .mobile-spacing {
+    @apply space-y-3 sm:space-y-4 lg:space-y-6;
+  }
+  
+  /* Better mobile grid layouts */
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6;
+  }
+  
+  /* Mobile-friendly buttons */
+  .mobile-button {
+    @apply h-9 sm:h-10 px-3 sm:px-4 text-sm sm:text-base;
+  }
+  
+  /* Mobile-friendly cards */
+  .mobile-card {
+    @apply p-3 sm:p-4 lg:p-6;
+  }
+  
+  /* Prevent text overflow */
+  .text-ellipsis {
+    @apply truncate;
+  }
+  
+  /* Mobile-friendly form elements */
+  .mobile-input {
+    @apply text-sm sm:text-base h-9 sm:h-10;
+  }
+  
+  /* Mobile-friendly navigation */
+  .mobile-nav {
+    @apply text-xs sm:text-sm;
+  }
+  
+  /* Schedule-specific utilities */
+  .schedule-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3 sm:gap-4;
+  }
+  
+  .schedule-card {
+    @apply min-h-[280px] flex flex-col;
+  }
+  
+  .schedule-item {
+    @apply p-2 sm:p-3 rounded-lg border bg-card hover:bg-accent/50 transition-colors;
+  }
+  
+  /* Line clamp utilities for text truncation */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  /* Mobile-friendly form layouts */
+  .mobile-form-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4;
+  }
+  
+  .mobile-form-full {
+    @apply sm:col-span-2;
+  }
+  
+  /* Better mobile spacing for schedule items */
+  .schedule-content {
+    @apply space-y-2 sm:space-y-3;
+  }
+  
+  /* Mobile-friendly action buttons */
+  .schedule-actions {
+    @apply flex items-center gap-1 flex-shrink-0;
+  }
+  
+  .schedule-action-btn {
+    @apply h-7 w-7 p-0;
+  }
+  
+  /* Study plan specific utilities */
+  .study-plan-card {
+    @apply relative;
+  }
+  
+  .study-plan-header {
+    @apply flex flex-col sm:flex-row sm:items-center justify-between gap-3;
+  }
+  
+  .study-plan-title {
+    @apply flex flex-wrap items-center gap-2 text-lg;
+  }
+  
+  .study-plan-meta {
+    @apply flex flex-wrap items-center gap-2 text-sm;
+  }
+  
+  .study-plan-progress {
+    @apply flex flex-col sm:flex-row sm:items-center gap-4 mt-4;
+  }
+  
+  .study-day-card {
+    @apply relative;
+  }
+  
+  .study-day-header {
+    @apply flex flex-col sm:flex-row sm:items-center justify-between gap-2;
+  }
+  
+  .study-task-item {
+    @apply flex items-start gap-3 p-3 bg-card rounded-lg border hover:bg-accent/50 transition-colors;
+  }
+  
+  .study-task-content {
+    @apply flex-1 min-w-0;
+  }
+  
+  .study-task-title {
+    @apply flex items-center gap-2 mb-1;
+  }
+  
+  .study-task-meta {
+    @apply flex flex-wrap items-center gap-2 text-xs;
+  }
+  
+  /* Progress bar utilities */
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700;
+  }
+  
+  .progress-fill {
+    @apply bg-blue-600 h-2 rounded-full transition-all duration-300;
+  }
+  
+  /* Badge utilities for study plans */
+  .badge-priority-high {
+    @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+  }
+  
+  .badge-priority-medium {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+  }
+  
+  .badge-priority-low {
+    @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+  }
+  
+  .badge-type-reading {
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+  }
+  
+  .badge-type-practice {
+    @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+  }
+  
+  .badge-type-review {
+    @apply bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200;
+  }
+  
+  .badge-type-quiz {
+    @apply bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200;
+  }
 }
