@@ -9,7 +9,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Budi - AI Assistant for University Students",
+  title: "Clasai - AI Assistant for University Students",
   description: "Your intelligent companion for academic success. Get personalized study plans, note summaries, and schedule management.",
 };
 

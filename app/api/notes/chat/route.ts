@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     const isStudyRequest = /practice|question|quiz|exam|test|flashcard|summary|key point/i.test(message);
     const isNoteQuestion = /note|document|pdf|content|what|explain|how|why/i.test(message);
 
-    let systemPrompt = `You are Budi, an AI study assistant specialized in helping students with their academic notes and study materials.
+    let systemPrompt = `You are Clasai, an AI study assistant specialized in helping students with their academic notes and study materials.
 
 Your capabilities include:
 - Analyzing uploaded PDF notes and documents

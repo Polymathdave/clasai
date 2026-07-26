@@ -192,7 +192,7 @@ export default function SettingsPage() {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `budi-data-export-${new Date().toISOString().split('T')[0]}.json`;
+        a.download = `clasai-data-export-${new Date().toISOString().split('T')[0]}.json`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -351,7 +351,7 @@ export default function SettingsPage() {
               <User className="h-5 w-5" />
               Account Overview
             </CardTitle>
-            <CardDescription>Your Budi journey at a glance</CardDescription>
+            <CardDescription>Your Clasai journey at a glance</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -555,7 +555,7 @@ export default function SettingsPage() {
               <Palette className="h-5 w-5" />
               Appearance
             </CardTitle>
-            <CardDescription>Customize how Budi looks and feels</CardDescription>
+            <CardDescription>Customize how Clasai looks and feels</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
@@ -625,7 +625,7 @@ export default function SettingsPage() {
               <SettingsIcon className="h-5 w-5" />
               AI Assistant Preferences
             </CardTitle>
-            <CardDescription>Configure how Budi assists you</CardDescription>
+            <CardDescription>Configure how Clasai assists you</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-4">
@@ -706,7 +706,7 @@ export default function SettingsPage() {
                   onCheckedChange={(checked) => updatePreference('analytics_consent', checked)}
                 />
                 <Label htmlFor="analytics">
-                  Allow anonymous usage analytics to improve Budi
+                  Allow anonymous usage analytics to improve Clasai
                 </Label>
               </div>
               

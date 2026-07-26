@@ -93,7 +93,7 @@ export function SidebarNav() {
           <div className="flex items-center gap-2 font-bold text-xl">
             <GraduationCap className="h-8 w-8 text-primary" />
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              Budi
+              Clasai
             </span>
           </div>
         </div>

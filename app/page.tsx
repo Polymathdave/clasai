@@ -24,7 +24,7 @@ export default async function Home() {
               <Link href={"/"} className="flex items-center gap-2">
                 <span className="text-2xl">🎓</span>
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-xl font-bold">
-                  Budi
+                  Clasai
                 </span>
               </Link>
             </div>
@@ -35,7 +35,7 @@ export default async function Home() {
           <div className="text-center space-y-6">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Meet Budi
+                Meet Clasai
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
                 Your AI-powered study companion for university success
@@ -106,7 +106,7 @@ export default async function Home() {
               <div className="text-center">
                 <h2 className="font-medium text-xl mb-4">Get Started</h2>
                 <p className="text-muted-foreground mb-4">
-                  To use Budi, you&apos;ll need to set up your Supabase environment variables first.
+                  To use Clasai, you&apos;ll need to set up your Supabase environment variables first.
                 </p>
                 <p className="text-sm text-muted-foreground">
                   Create a <code className="bg-muted px-2 py-1 rounded">.env.local</code> file and add your Supabase credentials.

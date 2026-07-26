@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
       return new NextResponse(JSON.stringify(exportData, null, 2), {
         headers: {
           'Content-Type': 'application/json',
-          'Content-Disposition': `attachment; filename="budi-data-export-${new Date().toISOString().split('T')[0]}.json"`
+          'Content-Disposition': `attachment; filename="clasai-data-export-${new Date().toISOString().split('T')[0]}.json"`
         }
       });
     }
